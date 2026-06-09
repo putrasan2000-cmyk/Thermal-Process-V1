@@ -17,7 +17,7 @@ Aplikasi Python untuk analisis data retort dan heat penetration study.
 
 File CSV dengan format:
 
-waktu,DL1,DL2,DL3
+waktu,TC 1,TC 2,TC 3
 0,75,76,74
 1,80,81,79
 2,90,91,89
