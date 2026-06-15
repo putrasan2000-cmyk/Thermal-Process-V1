@@ -7,9 +7,12 @@ Original file is located at
     https://colab.research.google.com/drive/1rWV-2N-qrRYPWvXThmelkJ_cKzruSDKl
 """
 
-from google.colab import files
+import streamlit as st
 
-uploaded = files.upload()
+uploaded_file = st.file_uploader(
+    "Upload CSV",
+    type=["csv"]
+)
 
 import pandas as pd
 import numpy as np
