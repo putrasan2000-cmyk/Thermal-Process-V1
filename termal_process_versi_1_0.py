@@ -39,7 +39,7 @@ if uploaded_file is None:
     st.stop()
 
 data = pd.read_csv(uploaded_file)
-
+st.write(data.columns.tolist())
 st.write(data.head())
 
 for logger in loggers:
