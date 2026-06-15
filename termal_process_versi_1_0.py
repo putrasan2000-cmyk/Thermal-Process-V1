@@ -29,21 +29,18 @@ uploaded_file = st.file_uploader(
     "Upload CSV",
     type=["csv"]
 )
+
+if uploaded_file is None:
+
+    st.info(
+        "Silakan upload file CSV terlebih dahulu"
+    )
+
+    st.stop()
+
+data = pd.read_csv(uploaded_file)
+
 st.write(data.head())
-
-st.write(data.columns)
-
-# ==========================
-# BACA DATA
-# ==========================
-
-if uploaded_file is not None:
-
-    data = pd.read_csv(uploaded_file)
-
-    st.success("File berhasil dibaca")
-
-    loggers = data.columns[1:]
 
 # ==========================
 # HITUNG F0 SEMUA LOGGER
