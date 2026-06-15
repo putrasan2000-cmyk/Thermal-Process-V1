@@ -14,6 +14,12 @@ uploaded_file = st.file_uploader(
     type=["csv"]
 )
 
+if uploaded_file:
+
+    data = pd.read_csv(
+        uploaded_file
+    )
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -358,6 +364,13 @@ plt.grid()
 
 plt.show()
 
-from google.colab import files
+with open(
+    "Laporan_Retort.xlsx",
+    "rb"
+) as f:
 
-files.download('Laporan_Retort.xlsx')
+    st.download_button(
+        "Download Laporan",
+        f,
+        file_name="Laporan_Retort.xlsx"
+    )
