@@ -44,7 +44,7 @@ for logger in loggers:
 # ==========================
 
 hasil_f0 = []
-for logger in loggers:
+
     suhu_C = (
         (data[logger] - 32)
         * 5 / 9
