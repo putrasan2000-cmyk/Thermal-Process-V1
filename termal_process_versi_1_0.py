@@ -31,16 +31,13 @@ uploaded_file = st.file_uploader(
 )
 
 if uploaded_file is None:
-
-    st.info(
-        "Silakan upload file CSV terlebih dahulu"
-    )
-
     st.stop()
 
 data = pd.read_csv(uploaded_file)
-st.write(data.columns.tolist())
-st.write(data.head())
+
+loggers = data.columns[1:]
+
+for logger in loggers:
 
 # ==========================
 # HITUNG F0 SEMUA LOGGER
