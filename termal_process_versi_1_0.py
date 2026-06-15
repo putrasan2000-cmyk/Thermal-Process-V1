@@ -8,18 +8,6 @@ Original file is located at
 """
 
 import streamlit as st
-
-uploaded_file = st.file_uploader(
-    "Upload CSV",
-    type=["csv"]
-)
-
-if uploaded_file:
-
-    data = pd.read_csv(
-        uploaded_file
-    )
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -27,17 +15,32 @@ import matplotlib.pyplot as plt
 from openpyxl import load_workbook
 from openpyxl.drawing.image import Image
 
+import streamlit as st
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+from openpyxl import load_workbook
+from openpyxl.drawing.image import Image
+
+st.title("Thermal Process Analyzer")
+
+uploaded_file = st.file_uploader(
+    "Upload CSV",
+    type=["csv"]
+)
 
 # ==========================
 # BACA DATA
 # ==========================
 
-file_csv = "data_logger.csv"
+if uploaded_file is not None:
 
-data = pd.read_csv(file_csv)
+    data = pd.read_csv(uploaded_file)
 
-loggers = data.columns[1:]
+    st.success("File berhasil dibaca")
 
+    loggers = data.columns[1:]
 
 # ==========================
 # HITUNG F0 SEMUA LOGGER
@@ -325,7 +328,7 @@ print(
     "Laporan selesai dibuat"
 )
 
-plt.figure(figsize=(12, 7))
+st.pyplot(plt.gcf())
 for logger in loggers:
     plt.plot(data["Waktu"], data[logger], label=logger)
 
@@ -373,4 +376,3 @@ with open(
         "Download Laporan",
         f,
         file_name="Laporan_Retort.xlsx"
-    )
