@@ -29,6 +29,9 @@ uploaded_file = st.file_uploader(
     "Upload CSV",
     type=["csv"]
 )
+st.write(data.head())
+
+st.write(data.columns)
 
 # ==========================
 # BACA DATA
