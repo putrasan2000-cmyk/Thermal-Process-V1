@@ -37,14 +37,14 @@ data = pd.read_csv(uploaded_file)
 
 loggers = data.columns[1:]
 
-for logger in loggers:
-
 # ==========================
 # HITUNG F0 SEMUA LOGGER
 # ==========================
 
 hasil_f0 = []
 
+for logger in loggers:
+    
     suhu_C = (
         (data[logger] - 32)
         * 5 / 9
