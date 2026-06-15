@@ -42,14 +42,12 @@ data = pd.read_csv(uploaded_file)
 st.write(data.columns.tolist())
 st.write(data.head())
 
-for logger in loggers:
-
 # ==========================
 # HITUNG F0 SEMUA LOGGER
 # ==========================
 
 hasil_f0 = []
-
+for logger in loggers:
     suhu_C = (
         (data[logger] - 32)
         * 5 / 9
